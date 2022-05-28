@@ -1,4 +1,5 @@
-import os, shutil, requests, random
+import os, shutil, requests, random, sys
+from extraneous import extraneous_files, extraneous_folders
 from serpapi import GoogleSearch
 from PIL import Image
 
@@ -10,45 +11,47 @@ from PIL import Image
 5. Create a list of .png file paths that needs to be replaced
 6. Replace .png files with results
 
-Rules
-- pack.png will be used as the resourcepack's icon.
+Information
 - The assets folder will be used as the repository for copying.
+- You will need an API key from https://serpapi.com 
 """
 
-# Customize resourcepack here
-resourcepack_name = "Animals Pack"
-resourcepack_description = "Animals, only Animals"
-resourcepack_theme = "Animals"
-version = 8
+# Get user input
+if len(sys.argv) != 2:
+  print("ERROR: You need to provide an API key from https://serpapi.com")
+  print("Usage: python main.py API-KEY")
+  sys.exit()
+
+api_key = sys.argv[1]
+
+resourcepack_name_input = input("Resourcepack Name (Separate spaces with \"-\"): ").split("-")
+resourcepack_name = " ".join(resourcepack_name_input)
+resourcepack_description_input = input("Description (Separate spaces with \"-\"): ").split("-")
+resourcepack_description = " ".join(resourcepack_description_input)
+resourcepack_theme_input = input("Resourcepack Theme (Separate spaces with \"-\"): ")
+resourcepack_theme = " ".join(resourcepack_theme_input)
+
+print("""-Version-
+1 for versions 1.6.1 - 1.8.9
+2 for versions 1.9 - 1.10.2
+3 for versions 1.11 - 1.12.2
+4 for versions 1.13 - 1.14.4
+5 for versions 1.15 - 1.16.1
+6 for versions 1.16.2 - 1.16.5
+7 for versions 1.17.x
+8 for versions 1.18.x
+9 for versions 1.19.x""")
+version = input("\nEnter a number 1-9: ")
+
+print("\n Starting script...")
 
 # 1. Recursively copy over assets folder into root folder.
-print("Copying over directories...")
+print("Copying over directories from assets folder...")
 
 shutil.copytree("assets", "{}/assets".format(resourcepack_name))
 
 # 2. Remove extraneous files that were copied over.
 print("Removing extraneous files...")
-
-extraneous_files = [
-  "assets/.mcassetsroot",
-  "assets/minecraft/gpu_warnlist.json",
-  "assets/minecraft/regional_compliancies.json"
-]
-extraneous_folders = [
-  "assets/realms",
-  "assets/minecraft/blockstates",
-  "assets/minecraft/font",
-  "assets/minecraft/lang",
-  "assets/minecraft/models",
-  "assets/minecraft/particles",
-  "assets/minecraft/shaders",
-  "assets/minecraft/texts",
-
-  "assets/minecraft/textures/colormap",
-  "assets/minecraft/textures/effect",
-  "assets/minecraft/textures/font",
-  "assets/minecraft/textures/gui"
-]
 
 for file in extraneous_files:
   print("Removed {}".format(file))
@@ -71,7 +74,6 @@ pack_mcmeta.write("""{
 # 4. Use API to load images
 print("Making API call...")
 
-api_key = "a0b8a19fa287d33e0680eb4f816e957014ec1bbce1598710b752265f1bb9bebe"
 params = {
   "api_key": "{}".format(api_key),
   "engine": "google",
