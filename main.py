@@ -43,7 +43,7 @@ print("""-Version-
 9 for versions 1.19.x""")
 version = input("\nEnter a number 1-9: ")
 
-print("\n Starting script...")
+print("\nStarting script...")
 
 # 1. Recursively copy over assets folder into root folder.
 print("Copying over directories from assets folder...")
@@ -102,7 +102,7 @@ while len(directories) != 0:
         for item in os.listdir(directory):
             if item.endswith(".png"):
                 image_paths.append("{}/{}".format(directory, item))
-            elif item.endswith(".mcmeta"):
+            elif item.endswith(".mcmeta") or item.endswith(".json"):
                 pass
             else:
                 directories.append("{}/{}".format(directory, item))
