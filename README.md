@@ -31,6 +31,9 @@ Resourcepack Theme (Separate spaces with "-"): The-Legend-Of-Zelda
 Enter a number 1-9: 8
 ```
 
-6. Once the script completes, move your newly created folder into the resourcepacks folder for Minecraft. Located in "C:/Users/<username>/AppData/Roaming/.minecraft/resourcepacks".
-7. Launch Minecraft and apply the resource pack.
+6. Once the script completes, Launch Minecraft and apply the resource pack by moving your newly created folder into the resourcepacks folder for Minecraft. The destination is "C:/Users/<username>/AppData/Roaming/.minecraft/resourcepacks".
+![Resourcepacks](/screenshots/minecraft1.png?raw=true "Resourcepacks")
+![Folder Destination](/screenshots/minecraft2.png?raw=true "Folder Destination")
+![Outcome](/screenshots/minecraft3.png?raw=true "Outcome")
+![Testing](/screenshots/minecraft4.png?raw=true "Testing")
 8. Test the resourcepack in your world or on a server.
