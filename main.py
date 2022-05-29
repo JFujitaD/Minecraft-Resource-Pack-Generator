@@ -1,4 +1,5 @@
 import os, shutil, requests, random, sys
+from unittest import result
 from extraneous import extraneous_files, extraneous_folders
 from serpapi import GoogleSearch
 from PIL import Image
@@ -111,9 +112,16 @@ while len(directories) != 0:
 # 6. Replace .png files with results
 print("Replacing {} images...".format(len(image_paths)))
 
+i = 0
+result_count = len(results)
+image_count = len(image_paths)
 for image_path in image_paths:
-  url = results[random.randrange(0, len(results) - 1)]["thumbnail"]
+  url = results[random.randrange(0, result_count - 1)]["thumbnail"]
   image = Image.open(requests.get(url, stream=True).raw)
   image.save(image_path)
+
+  i += 1
+  percent_complete = i * 100 / image_count
+  print("{0:.2f}% complete".format(percent_complete))
 
 print("Operation Complete!")
