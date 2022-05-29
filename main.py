@@ -1,10 +1,9 @@
 import os, shutil, requests, random, sys
-from unittest import result
 from extraneous import extraneous_files, extraneous_folders
 from serpapi import GoogleSearch
 from PIL import Image
 
-""" Algorithm for replicating assets folder structure for resourcepack
+""" Algorithm for replicating assets folder structure for resource pack
 1. Recursively copy over assets folder into root folder.
 2. Remove extraneous files that were copied over.
 3. Create the pack.mcmeta file with the correct version number and description.
@@ -25,11 +24,11 @@ if len(sys.argv) != 2:
 
 api_key = sys.argv[1]
 
-resourcepack_name_input = input("Resourcepack Name (Separate spaces with \"-\"): ").split("-")
+resourcepack_name_input = input("Resource Pack Name (Separate spaces with \"-\"): ").split("-")
 resourcepack_name = " ".join(resourcepack_name_input)
 resourcepack_description_input = input("Description (Separate spaces with \"-\"): ").split("-")
 resourcepack_description = " ".join(resourcepack_description_input)
-resourcepack_theme_input = input("Resourcepack Theme (Separate spaces with \"-\"): ")
+resourcepack_theme_input = input("Resource Pack Theme (Separate spaces with \"-\"): ")
 resourcepack_theme = " ".join(resourcepack_theme_input)
 
 print("""-Version-
