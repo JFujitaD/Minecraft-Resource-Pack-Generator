@@ -7,7 +7,7 @@ Generate a themed resource pack for any version of Minecraft using Python.
 ```
 pip install -r requirements.txt
 ```
-3. Copy the assets folder of the Minecraft version that you wish to generate the resource pack for into the root of this project. Located in "C:/Users/<username>/AppData/Roaming/.minecraft/versions/<version>/<version>.jar".
+3. Copy the assets folder of the Minecraft version that you wish to generate the resource pack for into the root of this project. Located in "C:/Users/username/AppData/Roaming/.minecraft/versions/version/version.jar".
 4. Using your API key from Serpapi, run main.py.
 ```
 python main.py <API-Key>
@@ -31,7 +31,7 @@ Resource Pack Theme (Separate spaces with "-"): The-Legend-Of-Zelda
 Enter a number 1-9: 8
 ```
 
-6. Once the script completes, Launch Minecraft and apply the resource pack by moving your newly created folder into the resource packs folder for Minecraft. The destination is "C:/Users/<username>/AppData/Roaming/.minecraft/resourcepacks".
+6. Once the script completes, Launch Minecraft and apply the resource pack by moving your newly created folder into the resource packs folder for Minecraft. The destination is "C:/Users/username/AppData/Roaming/.minecraft/resourcepacks".
 ![Resource Packs](/screenshots/minecraft1.png?raw=true "Resource Packs")
 ![Folder Destination](/screenshots/minecraft2.png?raw=true "Folder Destination")
 ![Outcome](/screenshots/minecraft3.png?raw=true "Outcome")
